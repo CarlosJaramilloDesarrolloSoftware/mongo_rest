@@ -1,0 +1,30 @@
+{
+  "name": "mongo_rest",
+  "version": "1.0.0",
+  "description": "MongoDb y REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosJaramilloDesarrolloSoftware/mongo_rest.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "mongo",
+    "mongodb",
+    "rest"
+  ],
+  "author": "Carlos Jaramillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosJaramilloDesarrolloSoftware/mongo_rest/issues"
+  },
+  "homepage": "https://github.com/CarlosJaramilloDesarrolloSoftware/mongo_rest#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
