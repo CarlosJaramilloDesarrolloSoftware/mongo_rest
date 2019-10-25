@@ -71,3 +71,5 @@ app.delete('/product/:id', function (req, res) {
 
 });
 */
+
+module.exports = app;

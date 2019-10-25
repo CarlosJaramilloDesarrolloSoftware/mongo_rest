@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  
 app.use(bodyParser.json());
 
+app.use( require("./controllers/productC.js") );
 
 mongoose.connect('mongodb://localhost:27017/tienda', {
   useNewUrlParser: true,
