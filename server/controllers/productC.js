@@ -25,7 +25,7 @@ app.get('/products', function (req, res) {
                 return res.json({
                     'success': true,
                     'message' : 'Product List',
-                    'data' : productList
+                    'data' : [productList]
                 })
             });
 
@@ -53,16 +53,33 @@ app.post('/product', function (req, res) {
         return res.json({
             'success': true,
             'message' : 'Product saved successfully',
-            'data' : productDB
+            'data' : [productDB]
         })
     });
 });
 
-/*
+
 app.get('/product/:id', function (req, res) {
-    //req.params.id
+    let id = req.params.id;
+
+    Product.findById(id)
+            .exec( (err, productDetail) => {
+                if(err){
+                    return res.status(400).json({
+                        'success': false,
+                        'message' : err,
+                        'data' : []
+                    });
+                }
+                return res.json({
+                    'success': true,
+                    'message' : 'Product Detail',
+                    'data' : [productDetail]
+                })
+            });
 });
 
+/*
 app.put('/product/:id', function (req, res) {
 
 });
