@@ -79,11 +79,29 @@ app.get('/product/:id', function (req, res) {
             });
 });
 
-/*
-app.put('/product/:id', function (req, res) {
 
+app.put('/product/:id', function (req, res) {
+    let id = req.params.id;
+    let data = req.body;
+
+    Product.findByIdAndUpdate(id, data, {new : true,  runValidators: true}, (err, productDB) => {
+        if(err){
+            return res.status(400).json({
+                'success': false,
+                'message' : err,
+                'data' : []
+            });
+        }
+        return res.json({
+            'success': true,
+            'message' : 'Product updated successfully',
+            'data' : [productDB]
+        })
+    });
 });
 
+
+/*
 app.delete('/product/:id', function (req, res) {
 
 });
