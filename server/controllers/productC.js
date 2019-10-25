@@ -101,10 +101,32 @@ app.put('/product/:id', function (req, res) {
 });
 
 
-/*
-app.delete('/product/:id', function (req, res) {
 
+app.delete('/product/:id', function (req, res) {
+    let id = req.params.id;
+    let data = { active : false };
+    Product.findByIdAndUpdate(id, data, {new : true,  runValidators: true}, (err, productDB) => {
+        if(err){
+            return res.status(400).json({
+                'success': false,
+                'message' : err,
+                'data' : []
+            });
+        }
+        if(!productDB){
+            return res.status(400).json({
+                'success': false,
+                'message' : 'Product doesnt found',
+                'data' : []
+            });
+        }
+        return res.json({
+            'success': true,
+            'message' : 'Product deleted successfully',
+            'data' : [productDB]
+        })
+    });
 });
-*/
+
 
 module.exports = app;
